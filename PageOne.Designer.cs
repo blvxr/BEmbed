@@ -43,6 +43,7 @@ namespace BotGUI
             this.txtEmbedTitle = new System.Windows.Forms.TextBox();
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.txtToken = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,10 +161,19 @@ namespace BotGUI
             this.txtAuthor.TabIndex = 30;
             this.txtAuthor.Text = "Author";
             // 
+            // txtToken
+            // 
+            this.txtToken.Location = new System.Drawing.Point(298, 79);
+            this.txtToken.Name = "txtToken";
+            this.txtToken.Size = new System.Drawing.Size(197, 23);
+            this.txtToken.TabIndex = 31;
+            this.txtToken.Text = "Bot Token";
+            // 
             // PageOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtToken);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.txtEmbedTitle);
             this.Controls.Add(this.lblList);
@@ -200,5 +210,6 @@ namespace BotGUI
         private System.Windows.Forms.TextBox txtEmbedTitle;
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.TextBox txtToken;
     }
 }
