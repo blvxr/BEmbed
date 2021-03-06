@@ -43,7 +43,7 @@ namespace BotGUI
         private async Task SendEmbed(Embed embed)
         {
             DiscordRestClient discord = new DiscordRestClient();
-            await discord.LoginAsync(TokenType.Bot, "NzA2MzU5ODQxMzkxNjQwNTc3.Xq5G3Q.QiQpgcibT5wm07H7LFxR9hh42YE");
+            await discord.LoginAsync(TokenType.Bot, txtToken.Text);
             var channel = await discord.GetChannelAsync(644068713921773579);
             await (channel as IRestMessageChannel).SendMessageAsync(null, false, embed);
         }
