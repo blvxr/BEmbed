@@ -35,7 +35,6 @@ namespace BotGUI
             foreach (var embed in embeds)
             {
                 builder.AddField(embed);
-                //another git test
             }
 
             await SendEmbed(builder.Build());

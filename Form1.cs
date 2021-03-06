@@ -20,7 +20,6 @@ namespace BotGUI
         {
             InitializeComponent();
             panel1.Controls.Add(pageOne);
-            //git test
         }
 
         private void discord()
