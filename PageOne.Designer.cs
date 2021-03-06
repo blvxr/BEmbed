@@ -32,7 +32,7 @@ namespace BotGUI
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtURL = new System.Windows.Forms.TextBox();
+            this.txtImage = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.txtContent = new System.Windows.Forms.TextBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -43,7 +43,9 @@ namespace BotGUI
             this.txtEmbedTitle = new System.Windows.Forms.TextBox();
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.txtToken = new System.Windows.Forms.TextBox();
+            this.boxChannels = new System.Windows.Forms.ComboBox();
+            this.txtThumbnail = new System.Windows.Forms.TextBox();
+            this.bttnRemoveEmbed = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,14 +55,14 @@ namespace BotGUI
             this.lblTitle.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(792, 23);
+            this.lblTitle.Size = new System.Drawing.Size(436, 23);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "HH Servers";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(304, 221);
+            this.btnAdd.Location = new System.Drawing.Point(126, 221);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(179, 40);
             this.btnAdd.TabIndex = 26;
@@ -71,24 +73,24 @@ namespace BotGUI
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(198, 215);
+            this.pictureBox1.Location = new System.Drawing.Point(314, 389);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 40);
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // txtURL
+            // txtImage
             // 
-            this.txtURL.Location = new System.Drawing.Point(492, 399);
-            this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(103, 23);
-            this.txtURL.TabIndex = 24;
-            this.txtURL.Text = "Imgur URL";
+            this.txtImage.Location = new System.Drawing.Point(20, 79);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.Size = new System.Drawing.Size(197, 23);
+            this.txtImage.TabIndex = 24;
+            this.txtImage.Text = "Image URL";
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(307, 389);
+            this.btnSend.Location = new System.Drawing.Point(129, 389);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(179, 40);
             this.btnSend.TabIndex = 23;
@@ -98,7 +100,7 @@ namespace BotGUI
             // 
             // txtContent
             // 
-            this.txtContent.Location = new System.Drawing.Point(198, 134);
+            this.txtContent.Location = new System.Drawing.Point(20, 134);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
             this.txtContent.Size = new System.Drawing.Size(397, 77);
@@ -107,7 +109,7 @@ namespace BotGUI
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(198, 105);
+            this.txtTitle.Location = new System.Drawing.Point(20, 105);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(397, 23);
             this.txtTitle.TabIndex = 21;
@@ -119,12 +121,13 @@ namespace BotGUI
             this.Title,
             this.Content});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(198, 293);
+            this.listView1.Location = new System.Drawing.Point(20, 293);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(397, 90);
             this.listView1.TabIndex = 27;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Title
             // 
@@ -138,7 +141,7 @@ namespace BotGUI
             // 
             // lblList
             // 
-            this.lblList.Location = new System.Drawing.Point(346, 266);
+            this.lblList.Location = new System.Drawing.Point(168, 266);
             this.lblList.Name = "lblList";
             this.lblList.Size = new System.Drawing.Size(100, 23);
             this.lblList.TabIndex = 28;
@@ -147,7 +150,7 @@ namespace BotGUI
             // 
             // txtEmbedTitle
             // 
-            this.txtEmbedTitle.Location = new System.Drawing.Point(198, 53);
+            this.txtEmbedTitle.Location = new System.Drawing.Point(20, 53);
             this.txtEmbedTitle.Name = "txtEmbedTitle";
             this.txtEmbedTitle.Size = new System.Drawing.Size(197, 23);
             this.txtEmbedTitle.TabIndex = 29;
@@ -155,38 +158,58 @@ namespace BotGUI
             // 
             // txtAuthor
             // 
-            this.txtAuthor.Location = new System.Drawing.Point(398, 53);
+            this.txtAuthor.Location = new System.Drawing.Point(220, 53);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(197, 23);
             this.txtAuthor.TabIndex = 30;
             this.txtAuthor.Text = "Author";
             // 
-            // txtToken
+            // boxChannels
             // 
-            this.txtToken.Location = new System.Drawing.Point(298, 79);
-            this.txtToken.Name = "txtToken";
-            this.txtToken.Size = new System.Drawing.Size(197, 23);
-            this.txtToken.TabIndex = 31;
-            this.txtToken.Text = "Bot Token";
+            this.boxChannels.FormattingEnabled = true;
+            this.boxChannels.Location = new System.Drawing.Point(20, 399);
+            this.boxChannels.Name = "boxChannels";
+            this.boxChannels.Size = new System.Drawing.Size(103, 23);
+            this.boxChannels.TabIndex = 32;
+            // 
+            // txtThumbnail
+            // 
+            this.txtThumbnail.Location = new System.Drawing.Point(220, 79);
+            this.txtThumbnail.Name = "txtThumbnail";
+            this.txtThumbnail.Size = new System.Drawing.Size(197, 23);
+            this.txtThumbnail.TabIndex = 33;
+            this.txtThumbnail.Text = "Thumbnail URL";
+            // 
+            // bttnRemoveEmbed
+            // 
+            this.bttnRemoveEmbed.Location = new System.Drawing.Point(374, 294);
+            this.bttnRemoveEmbed.Name = "bttnRemoveEmbed";
+            this.bttnRemoveEmbed.Size = new System.Drawing.Size(42, 24);
+            this.bttnRemoveEmbed.TabIndex = 34;
+            this.bttnRemoveEmbed.Text = "X";
+            this.bttnRemoveEmbed.UseVisualStyleBackColor = true;
+            this.bttnRemoveEmbed.Click += new System.EventHandler(this.bttnRemoveEmbed_Click);
             // 
             // PageOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txtToken);
+            this.Controls.Add(this.bttnRemoveEmbed);
+            this.Controls.Add(this.txtThumbnail);
+            this.Controls.Add(this.boxChannels);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.txtEmbedTitle);
             this.Controls.Add(this.lblList);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtURL);
+            this.Controls.Add(this.txtImage);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtContent);
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.lblTitle);
             this.Name = "PageOne";
-            this.Size = new System.Drawing.Size(792, 441);
+            this.Size = new System.Drawing.Size(436, 441);
             this.Load += new System.EventHandler(this.PageOne_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -199,7 +222,7 @@ namespace BotGUI
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtURL;
+        private System.Windows.Forms.TextBox txtImage;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.TextBox txtContent;
         private System.Windows.Forms.TextBox txtTitle;
@@ -210,6 +233,8 @@ namespace BotGUI
         private System.Windows.Forms.TextBox txtEmbedTitle;
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.TextBox txtToken;
+        private System.Windows.Forms.ComboBox boxChannels;
+        private System.Windows.Forms.TextBox txtThumbnail;
+        private System.Windows.Forms.Button bttnRemoveEmbed;
     }
 }

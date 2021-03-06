@@ -9,14 +9,16 @@ using System.Windows.Forms;
 using ColorHelper;
 using Discord;
 using Discord.Rest;
+using Microsoft.Extensions.Configuration;
 
 namespace BotGUI
 {
     public partial class PageOne : UserControl
     {
-
+        public DiscordRestClient discord = new DiscordRestClient();
         private List<EmbedFieldBuilder> embeds = new List<EmbedFieldBuilder>();
-
+        private List<RestGuildChannel> channelList = new List<RestGuildChannel>();
+        private IConfigurationRoot _config = new Setup().getConfig();
         public PageOne()
         {
             InitializeComponent();
@@ -28,8 +30,6 @@ namespace BotGUI
             System.Drawing.Color color = pictureBox1.BackColor;
             var builder = new EmbedBuilder()
                     .WithColor(new Discord.Color(color.R, color.G, color.B))
-                    .WithAuthor(txtAuthor.Text)
-                    .WithTitle(txtEmbedTitle.Text)
                     .WithCurrentTimestamp();
 
             foreach (var embed in embeds)
@@ -37,14 +37,32 @@ namespace BotGUI
                 builder.AddField(embed);
             }
 
+            if (txtAuthor.Text != "Author" && txtAuthor.Text != null)
+            {
+                builder.WithAuthor(txtAuthor.Text);
+            }
+            if (txtImage.Text != "Image URL" && txtImage.Text != null)
+            {
+                builder.WithImageUrl(txtImage.Text);
+            }
+            if (txtThumbnail.Text != "Thumbnail URL" && txtThumbnail.Text != null)
+            {
+                builder.WithThumbnailUrl(txtThumbnail.Text);
+            }
+            if (txtEmbedTitle.Text != "Embed Title" && txtEmbedTitle.Text != null)
+            {
+                builder.WithTitle(txtEmbedTitle.Text);
+            }
+
             await SendEmbed(builder.Build());
         }
 
         private async Task SendEmbed(Embed embed)
         {
-            DiscordRestClient discord = new DiscordRestClient();
-            await discord.LoginAsync(TokenType.Bot, txtToken.Text);
-            var channel = await discord.GetChannelAsync(644068713921773579);
+            
+            await discord.LoginAsync(TokenType.Bot, _config["token"]);
+            var selectedChannel = boxChannels.SelectedItem as RestGuildChannel;
+            var channel = await discord.GetChannelAsync(selectedChannel.Id);
             await (channel as IRestMessageChannel).SendMessageAsync(null, false, embed);
         }
 
@@ -58,9 +76,17 @@ namespace BotGUI
             listView1.Items.Add(lvItem);
         }
 
-        private void PageOne_Load(object sender, EventArgs e)
+        private async void PageOne_Load(object sender, EventArgs e)
         {
-
+            await discord.LoginAsync(TokenType.Bot, _config["token"]);
+            var guild = await discord.GetGuildAsync(432496922134052882);
+            var channels = await guild.GetTextChannelsAsync();
+            foreach (var channel in channels)
+            {
+                channelList.Add(channel);
+                boxChannels.Items.Add(channel);
+            }
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -68,6 +94,20 @@ namespace BotGUI
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bttnRemoveEmbed_Click(object sender, EventArgs e)
+        {
+            var selectedItems = listView1.SelectedItems;
+            foreach (ListViewItem item in selectedItems)
+            {
+                listView1.Items.RemoveAt(item.Index);
             }
         }
     }
