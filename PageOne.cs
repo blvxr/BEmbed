@@ -22,6 +22,8 @@ namespace BotGUI
         public PageOne()
         {
             InitializeComponent();
+            listView1.Sorting = SortOrder.Ascending;
+            colorDialog1.CustomColors = new int[] { 10157970, 16741862 };
         }
 
         private async void btnSend_Click(object sender, EventArgs e)

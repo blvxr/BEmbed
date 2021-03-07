@@ -34,7 +34,7 @@ namespace BotGUI
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(5, 6);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(436, 441);
             this.panel1.TabIndex = 0;
@@ -44,11 +44,12 @@ namespace BotGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(444, 449);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "BEmbed";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 

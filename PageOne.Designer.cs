@@ -53,6 +53,7 @@ namespace BotGUI
             // 
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Font = new System.Drawing.Font("Arial", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(436, 23);
@@ -62,6 +63,7 @@ namespace BotGUI
             // 
             // btnAdd
             // 
+            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnAdd.Location = new System.Drawing.Point(126, 221);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(179, 40);
@@ -82,6 +84,8 @@ namespace BotGUI
             // 
             // txtImage
             // 
+            this.txtImage.BackColor = System.Drawing.Color.DimGray;
+            this.txtImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtImage.Location = new System.Drawing.Point(20, 79);
             this.txtImage.Name = "txtImage";
             this.txtImage.Size = new System.Drawing.Size(197, 23);
@@ -90,6 +94,7 @@ namespace BotGUI
             // 
             // btnSend
             // 
+            this.btnSend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnSend.Location = new System.Drawing.Point(129, 389);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(179, 40);
@@ -100,6 +105,8 @@ namespace BotGUI
             // 
             // txtContent
             // 
+            this.txtContent.BackColor = System.Drawing.Color.DimGray;
+            this.txtContent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtContent.Location = new System.Drawing.Point(20, 134);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
@@ -109,6 +116,8 @@ namespace BotGUI
             // 
             // txtTitle
             // 
+            this.txtTitle.BackColor = System.Drawing.Color.DimGray;
+            this.txtTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtTitle.Location = new System.Drawing.Point(20, 105);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(397, 23);
@@ -117,9 +126,11 @@ namespace BotGUI
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.Color.DimGray;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Title,
             this.Content});
+            this.listView1.ForeColor = System.Drawing.Color.Fuchsia;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(20, 293);
             this.listView1.Name = "listView1";
@@ -141,6 +152,7 @@ namespace BotGUI
             // 
             // lblList
             // 
+            this.lblList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lblList.Location = new System.Drawing.Point(168, 266);
             this.lblList.Name = "lblList";
             this.lblList.Size = new System.Drawing.Size(100, 23);
@@ -150,6 +162,8 @@ namespace BotGUI
             // 
             // txtEmbedTitle
             // 
+            this.txtEmbedTitle.BackColor = System.Drawing.Color.DimGray;
+            this.txtEmbedTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtEmbedTitle.Location = new System.Drawing.Point(20, 53);
             this.txtEmbedTitle.Name = "txtEmbedTitle";
             this.txtEmbedTitle.Size = new System.Drawing.Size(197, 23);
@@ -158,6 +172,8 @@ namespace BotGUI
             // 
             // txtAuthor
             // 
+            this.txtAuthor.BackColor = System.Drawing.Color.DimGray;
+            this.txtAuthor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtAuthor.Location = new System.Drawing.Point(220, 53);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(197, 23);
@@ -166,14 +182,19 @@ namespace BotGUI
             // 
             // boxChannels
             // 
+            this.boxChannels.BackColor = System.Drawing.Color.DimGray;
+            this.boxChannels.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.boxChannels.FormattingEnabled = true;
             this.boxChannels.Location = new System.Drawing.Point(20, 399);
             this.boxChannels.Name = "boxChannels";
             this.boxChannels.Size = new System.Drawing.Size(103, 23);
+            this.boxChannels.Sorted = true;
             this.boxChannels.TabIndex = 32;
             // 
             // txtThumbnail
             // 
+            this.txtThumbnail.BackColor = System.Drawing.Color.DimGray;
+            this.txtThumbnail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.txtThumbnail.Location = new System.Drawing.Point(220, 79);
             this.txtThumbnail.Name = "txtThumbnail";
             this.txtThumbnail.Size = new System.Drawing.Size(197, 23);
@@ -184,7 +205,7 @@ namespace BotGUI
             // 
             this.bttnRemoveEmbed.Location = new System.Drawing.Point(374, 294);
             this.bttnRemoveEmbed.Name = "bttnRemoveEmbed";
-            this.bttnRemoveEmbed.Size = new System.Drawing.Size(42, 24);
+            this.bttnRemoveEmbed.Size = new System.Drawing.Size(42, 25);
             this.bttnRemoveEmbed.TabIndex = 34;
             this.bttnRemoveEmbed.Text = "X";
             this.bttnRemoveEmbed.UseVisualStyleBackColor = true;
@@ -194,6 +215,7 @@ namespace BotGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.Controls.Add(this.bttnRemoveEmbed);
             this.Controls.Add(this.txtThumbnail);
             this.Controls.Add(this.boxChannels);
