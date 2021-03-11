@@ -46,6 +46,7 @@ namespace BotGUI
             this.boxChannels = new System.Windows.Forms.ComboBox();
             this.txtThumbnail = new System.Windows.Forms.TextBox();
             this.bttnRemoveEmbed = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@ namespace BotGUI
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(436, 23);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "HH Servers";
+            this.lblTitle.Text = "BEmbed";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAdd
@@ -86,7 +87,7 @@ namespace BotGUI
             // 
             this.txtImage.BackColor = System.Drawing.Color.DimGray;
             this.txtImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtImage.Location = new System.Drawing.Point(20, 79);
+            this.txtImage.Location = new System.Drawing.Point(20, 53);
             this.txtImage.Name = "txtImage";
             this.txtImage.Size = new System.Drawing.Size(197, 23);
             this.txtImage.TabIndex = 24;
@@ -164,7 +165,7 @@ namespace BotGUI
             // 
             this.txtEmbedTitle.BackColor = System.Drawing.Color.DimGray;
             this.txtEmbedTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtEmbedTitle.Location = new System.Drawing.Point(20, 53);
+            this.txtEmbedTitle.Location = new System.Drawing.Point(20, 27);
             this.txtEmbedTitle.Name = "txtEmbedTitle";
             this.txtEmbedTitle.Size = new System.Drawing.Size(197, 23);
             this.txtEmbedTitle.TabIndex = 29;
@@ -174,7 +175,7 @@ namespace BotGUI
             // 
             this.txtAuthor.BackColor = System.Drawing.Color.DimGray;
             this.txtAuthor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtAuthor.Location = new System.Drawing.Point(220, 53);
+            this.txtAuthor.Location = new System.Drawing.Point(220, 27);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(197, 23);
             this.txtAuthor.TabIndex = 30;
@@ -195,7 +196,7 @@ namespace BotGUI
             // 
             this.txtThumbnail.BackColor = System.Drawing.Color.DimGray;
             this.txtThumbnail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txtThumbnail.Location = new System.Drawing.Point(220, 79);
+            this.txtThumbnail.Location = new System.Drawing.Point(220, 53);
             this.txtThumbnail.Name = "txtThumbnail";
             this.txtThumbnail.Size = new System.Drawing.Size(197, 23);
             this.txtThumbnail.TabIndex = 33;
@@ -211,11 +212,22 @@ namespace BotGUI
             this.bttnRemoveEmbed.UseVisualStyleBackColor = true;
             this.bttnRemoveEmbed.Click += new System.EventHandler(this.bttnRemoveEmbed_Click);
             // 
+            // label1
+            // 
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label1.Location = new System.Drawing.Point(129, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(176, 23);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Embed Properties:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // PageOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.bttnRemoveEmbed);
             this.Controls.Add(this.txtThumbnail);
             this.Controls.Add(this.boxChannels);
@@ -258,5 +270,6 @@ namespace BotGUI
         private System.Windows.Forms.ComboBox boxChannels;
         private System.Windows.Forms.TextBox txtThumbnail;
         private System.Windows.Forms.Button bttnRemoveEmbed;
+        private System.Windows.Forms.Label label1;
     }
 }
