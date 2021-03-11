@@ -47,6 +47,7 @@ namespace BotGUI
             this.txtThumbnail = new System.Windows.Forms.TextBox();
             this.bttnRemoveEmbed = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,7 +131,8 @@ namespace BotGUI
             this.listView1.BackColor = System.Drawing.Color.DimGray;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Title,
-            this.Content});
+            this.Content,
+            this.ID});
             this.listView1.ForeColor = System.Drawing.Color.Fuchsia;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(20, 293);
@@ -222,6 +224,10 @@ namespace BotGUI
             this.label1.Text = "Embed Properties:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            // 
             // PageOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -271,5 +277,6 @@ namespace BotGUI
         private System.Windows.Forms.TextBox txtThumbnail;
         private System.Windows.Forms.Button bttnRemoveEmbed;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader ID;
     }
 }

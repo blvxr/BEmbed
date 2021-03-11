@@ -16,7 +16,7 @@ namespace BotGUI
     public partial class PageOne : UserControl
     {
         public DiscordRestClient discord = new DiscordRestClient();
-        private List<EmbedFieldBuilder> embeds = new List<EmbedFieldBuilder>();
+        private Dictionary<Guid, EmbedFieldBuilder> embeds = new Dictionary<Guid, EmbedFieldBuilder>();
         private List<RestGuildChannel> channelList = new List<RestGuildChannel>();
         private IConfigurationRoot _config = new Setup().getConfig();
         public PageOne()
@@ -34,7 +34,7 @@ namespace BotGUI
                     .WithColor(new Discord.Color(color.R, color.G, color.B))
                     .WithCurrentTimestamp();
 
-            foreach (var embed in embeds)
+            foreach (var embed in embeds.Values)
             {
                 builder.AddField(embed);
             }
@@ -71,10 +71,12 @@ namespace BotGUI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var builder = new EmbedFieldBuilder();
+            var id = Guid.NewGuid();
             builder.WithName(txtTitle.Text).WithValue(txtContent.Text);
-            embeds.Add(builder);
+            embeds.Add(id, builder);
             ListViewItem lvItem = new ListViewItem(txtTitle.Text);
             lvItem.SubItems.Add(txtContent.Text);
+            lvItem.SubItems.Add(id.ToString());
             listView1.Items.Add(lvItem);
         }
 
@@ -109,7 +111,9 @@ namespace BotGUI
             var selectedItems = listView1.SelectedItems;
             foreach (ListViewItem item in selectedItems)
             {
-                listView1.Items.RemoveAt(item.Index);
+                    listView1.Items.RemoveAt(item.Index);
+                    var guid = Guid.Parse(item.SubItems[2].Text);
+                    embeds.Remove(guid);
             }
         }
     }
